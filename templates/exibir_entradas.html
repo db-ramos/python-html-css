@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Minha página Bonita</title>
+    </head>
+    <body>
+        <h1>NOme do Meu Blog</h1>
+        
+        <form method="POST" action="/inserir">
+            <dl>
+                <dt>Título</dt>
+                <dd><input type="text" size="30" name="titulo"/></dd>
+                <dt>Texto:</dt>
+                <dd><textarea rows="5" cols="40" name="texto"></textarea></dd>
+                <dd><input type="submit" value="Publicar"/></dd>
+                
+            </dl>
+        </form>
+        
+        <ul>
+            {% for entrada in entradas %}
+            <li>
+                <h2>{{ entrada.titulo }}</h2>
+                <p>{{ entrada.texto }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

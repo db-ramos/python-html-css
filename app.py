@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, g
+from flask import Flask, g, render_template
 
 DATABASE = "blog.db"
 SECRET_KEY = "pudim"
@@ -25,4 +25,4 @@ def exibir_entradas():
     entradas = []
     for titulo, texto in cur.fetchall():
         entradas.append({'titulo': titulo, 'texto': texto})
-    return str(entradas)
+    return render_template('exibir_entradas.html', entradas=entradas)
